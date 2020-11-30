@@ -2,7 +2,7 @@
   <div id="app">
     <div class="header">
       <div class="header__title">Cars2go</div>
-      <div class="header__button">Add new car</div>
+      <div class="header__button" @click="showModal = true">Add new car</div>
     </div>
     <div class="cars-container">
       <Car
@@ -11,26 +11,44 @@
         :car="car"
         @delete="deleteCar"/>
     </div>
+
+    <Modal v-if="showModal" @cancel="showModal = false" @submit="addCar">
+      <template v-slot:header>
+        <span>Add new car</span>
+      </template>
+      <template v-slot:body>
+        <CarForm :new-car.sync="newCar"/>
+      </template>
+    </Modal>
   </div>
 </template>
 
 <script>
 import Car from './components/Car.vue'
+import Modal from './components/Modal.vue'
+import CarForm from './components/CarForm.vue'
 import {CARS} from './assets/data.js';
 
 export default {
   name: 'App',
   components: {
     Car,
+    Modal,
+    CarForm
   },
   data() {
     return {
       carList: CARS,
+      showModal: false,
+      newCar: {}
     }
   },
   methods: {
     deleteCar(id) {
       this.carList = this.carList.filter((car) => car.id !== id)
+    },
+    addCar(){
+    console.log(this.newCar);
     }
   }
 }
