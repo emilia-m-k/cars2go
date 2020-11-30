@@ -1,26 +1,21 @@
 <template>
   <div class="modal-backdrop" id="modal-template">
-
-      <div class="modal">
-
-        <div class="modal__header">
-          <slot name="header"></slot>
-        </div>
-
-        <div class="modal__body">
-          <slot name="body"></slot>
-        </div>
-
-        <div class="modal__footer">
-          <button class="modal__button" @click="$emit('cancel')">
-            Cancel
-          </button>
-          <button class="modal__button modal__button--dark" @click.prevent="$emit('submit')">
-            Submit
-          </button>
-        </div>
-
+    <div class="modal">
+      <div class="modal__header">
+        <slot name="header"></slot>
       </div>
+      <div class="modal__body">
+        <slot name="body"></slot>
+      </div>
+      <div class="modal__footer">
+        <button class="modal__button" @click="$emit('cancel')">
+          Cancel
+        </button>
+        <button class="modal__button modal__button--dark" @click.prevent="$emit('submit')">
+          Submit
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -46,7 +41,7 @@ export default {
   width: 600px;
   margin: 0px auto;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   flex-flow: column nowrap;
@@ -59,6 +54,7 @@ export default {
 .modal__header{
   padding:20px;
   border-bottom: solid 1px var(--color-light-2);
+  font-size:20px;
 }
 .modal__body {
   padding:20px;

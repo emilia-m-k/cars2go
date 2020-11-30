@@ -12,7 +12,7 @@
         @delete="deleteCar"/>
     </div>
 
-    <Modal v-if="showModal" @cancel="showModal = false" @submit="addCar">
+    <Modal v-if="showModal" @cancel="cancel" @submit="addCar">
       <template v-slot:header>
         <span>Add new car</span>
       </template>
@@ -28,6 +28,20 @@ import Car from './components/Car.vue'
 import Modal from './components/Modal.vue'
 import CarForm from './components/CarForm.vue'
 import {CARS} from './assets/data.js';
+
+let nextId = 5;
+function createCar(data){
+  return {
+    id: nextId++,
+    title: data.title,
+    price: data.price,
+    img: data.img,
+    persons: data.persons,
+    doors: data.doors,
+    fuel: data.fuel,
+    description: data.description
+  };
+}
 
 export default {
   name: 'App',
@@ -45,10 +59,15 @@ export default {
   },
   methods: {
     deleteCar(id) {
-      this.carList = this.carList.filter((car) => car.id !== id)
+      this.carList = this.carList.filter((car) => car.id !== id);
+    },
+    cancel(){
+      this.showModal= false;
+      this.newCar={};
     },
     addCar(){
-    console.log(this.newCar);
+      this.carList.push(createCar(this.newCar));
+      this.cancel();
     }
   }
 }
