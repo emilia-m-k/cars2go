@@ -90,14 +90,14 @@ export default {
 }
 .car-form__label{
   display:flex;
+  margin-bottom:6px;
 }
 .car-form__input{
   display:flex;
   margin-bottom:20px;
   border: solid 1px var(--color-light-2);
   border-radius:3px;
-  padding:6px;
-  padding-left:10px;
+  padding: 6px 6px 6px 10px;
 }
 .car-form__textarea{
   font-family: "Roboto", sans-serif;

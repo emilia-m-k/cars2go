@@ -24,7 +24,7 @@
     </div>
   </div>
 </template>
-›
+
 <script>
 export default {
   name: "Car",
@@ -91,7 +91,7 @@ export default {
 }
 .car__dark-button{
   background-color: var(--color-dark);
-  color: var(--color-light-1);
+  color: white;
   padding:10px;
   width:150px;
   justify-content: center;
@@ -105,6 +105,4 @@ export default {
   font-size:14px;
   cursor: pointer;
 }
-
 </style>
-

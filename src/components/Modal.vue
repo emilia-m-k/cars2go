@@ -8,10 +8,10 @@
         <slot name="body"></slot>
       </div>
       <div class="modal__footer">
-        <button class="modal__button" @click="$emit('cancel')">
+        <button class="button" @click="$emit('cancel')">
           Cancel
         </button>
-        <button class="modal__button modal__button--dark" @click.prevent="$emit('submit')">
+        <button class="button button--dark" @click.prevent="$emit('submit')">
           Submit
         </button>
       </div>
@@ -34,7 +34,6 @@ export default {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  /*display: table;*/
   transition: opacity 0.3s ease;
 }
 .modal {
@@ -62,16 +61,5 @@ export default {
 .modal__footer {
   padding:20px;
   justify-content: space-between;
-}
-.modal__button {
-  border: solid 1px var(--color-dark);
-  border-radius: 3px;
-  background-color: white;
-  padding:10px;
-  width:100px;
-}
-.modal__button--dark {
-  background-color: var(--color-dark);
-  color:var(--color-light-1);
 }
 </style>
